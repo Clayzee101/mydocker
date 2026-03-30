@@ -4,7 +4,7 @@ pipeline{
     stage('1. Checkout'){
       git 'https://github.com/Clayzee101/mydocker.git'
     }
-  }
+  
 
   stage('2. Build Image'){
     steps{
@@ -23,5 +23,6 @@ pipeline{
     steps{
       bat 'docker run -d -p 8000:80 --name mycont myweb'
     }
+  }
   }
 }
