@@ -2,7 +2,9 @@ pipeline{
   agent any
   stages{
     stage('1. Checkout'){
+      steps{
       git 'https://github.com/Clayzee101/mydocker.git'
+    }
     }
   
 
