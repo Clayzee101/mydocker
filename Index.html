@@ -3,89 +3,150 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Enhanced Modern Page</title>
+    <title>Ultimate Interactive Page</title>
     <style>
-        /* General Styles */
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; background-color: #f0f2f5; color: #333; }
+        /* CSS Variables for Easy Theme Switching */
+        :root {
+            --primary: #6366f1;
+            --bg: #ffffff;
+            --text: #1f2937;
+            --card-bg: #f9fafb;
+            --nav-bg: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg: #111827;
+            --text: #f9fafb;
+            --card-bg: #1f2937;
+            --nav-bg: #111827;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            margin: 0; 
+            background-color: var(--bg); 
+            color: var(--text); 
+            transition: all 0.3s ease;
+        }
+
+        /* Modern Nav with Dark Mode Toggle */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 1rem 5%; 
+            background: var(--nav-bg); 
+            position: sticky; 
+            top: 0; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1); 
+            z-index: 1000;
+        }
         
-        /* Navigation with Hover Effects */
-        nav { background: #2c3e50; color: #fff; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: color 0.3s; }
-        nav a:hover { color: #3498db; }
+        .nav-links a { color: var(--text); margin-left: 20px; text-decoration: none; font-weight: 500; }
+        
+        .theme-toggle { 
+            background: var(--primary); 
+            color: white; 
+            border: none; 
+            padding: 8px 15px; 
+            border-radius: 20px; 
+            cursor: pointer; 
+        }
 
-        /* Hero Section with Gradient */
-        header { background: linear-gradient(135deg, #007bff, #00c6ff); color: white; padding: 80px 20px; text-align: center; }
+        /* Hero Section */
+        .hero { 
+            text-align: center; 
+            padding: 100px 20px; 
+            background: linear-gradient(rgba(99, 102, 241, 0.1), rgba(0,0,0,0)), url('https://via.placeholder.com');
+            background-size: cover;
+        }
 
-        .container { max-width: 1100px; margin: 20px auto; padding: 20px; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
 
-        /* Gallery Grid */
-        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
-        .gallery-item { background: #ddd; height: 150px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666; transition: transform 0.3s; cursor: pointer; }
-        .gallery-item:hover { transform: scale(1.05); background: #3498db; color: white; }
+        /* Feature Grid */
+        .features { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 25px; 
+            margin-top: 50px;
+        }
 
-        /* Main Content & Sidebar */
-        .row { display: flex; flex-wrap: wrap; gap: 30px; }
-        .main-content { flex: 2; min-width: 300px; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .sidebar { flex: 1; min-width: 280px; }
+        .feature-card { 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 15px; 
+            text-align: center;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
 
-        /* Contact Form */
-        .card { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; }
-        button:hover { background: #0056b3; }
+        .feature-card i { font-size: 2rem; color: var(--primary); display: block; margin-bottom: 15px; }
 
-        footer { background: #2c3e50; color: #bdc3c7; text-align: center; padding: 40px; margin-top: 40px; }
+        /* Buttons */
+        .btn-main { 
+            background: var(--primary); 
+            color: white; 
+            padding: 12px 30px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            display: inline-block; 
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        footer { text-align: center; padding: 60px 20px; border-top: 1px solid #eee; margin-top: 50px; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#home">Home</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
+        <div class="logo"><strong>BRAND</strong></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Work</a>
+            <button class="theme-toggle" onclick="toggleTheme()">Toggle Dark Mode</button>
+        </div>
     </nav>
 
-    <header id="home">
-        <h1>Explore the Possibilities</h1>
-        <p>A fully functional template with forms, grids, and style.</p>
-    </header>
+    <section class="hero">
+        <h1>Design Your Future</h1>
+        <p>A sophisticated template built with CSS Variables and Light/Dark themes.</p>
+        <a href="#explore" class="btn-main">Get Started</a>
+    </section>
 
-    <div class="container">
-        <!-- New Gallery Section -->
-        <h2 id="gallery">Our Portfolio</h2>
-        <div class="gallery">
-            <div class="gallery-item">Project A</div>
-            <div class="gallery-item">Project B</div>
-            <div class="gallery-item">Project C</div>
-            <div class="gallery-item">Project D</div>
-        </div>
-
-        <div class="row">
-            <section class="main-content">
-                <h2>The Mission</h2>
-                <p>We’ve upgraded the layout with a <strong>CSS Grid</strong> gallery and a cleaner <strong>Flexbox</strong> main area. This structure is perfect for a business landing page or a personal portfolio.</p>
-                <p>Notice how the navigation bar now has a slight shadow and the buttons change color when you hover over them? That's the power of CSS transitions.</p>
-            </section>
-
-            <!-- Sidebar with Contact Form -->
-            <aside class="sidebar">
-                <div class="card" id="contact">
-                    <h3>Contact Us</h3>
-                    <form action="#">
-                        <input type="text" placeholder="Your Name" required>
-                        <input type="email" placeholder="Your Email" required>
-                        <textarea placeholder="Your Message" rows="4"></textarea>
-                        <button type="submit">Send Message</button>
-                    </form>
-                </div>
-            </aside>
+    <div class="container" id="explore">
+        <div class="features">
+            <div class="feature-card">
+                <i>⚡</i>
+                <h3>Fast Performance</h3>
+                <p>Optimized for speed and SEO out of the box.</p>
+            </div>
+            <div class="feature-card">
+                <i>📱</i>
+                <h3>Mobile First</h3>
+                <p>Looks amazing on iPhones, Androids, and tablets.</p>
+            </div>
+            <div class="feature-card">
+                <i>🎨</i>
+                <h3>Customizable</h3>
+                <p>Change colors easily using our CSS variable system.</p>
+            </div>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 Premium Web Design. All rights reserved.</p>
-        <small>Built with ❤️ and HTML5</small>
+        <p>&copy; 2026 Innovation Lab. All rights reserved.</p>
     </footer>
 
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const currentTheme = body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                body.setAttribute('data-theme', 'light');
+            } else {
+                body.setAttribute('data-theme', 'dark');
+            }
+        }
+    </script>
 </body>
 </html>
