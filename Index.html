@@ -3,69 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modern Responsive Page</title>
+    <title>Enhanced Modern Page</title>
     <style>
         /* General Styles */
-        body { font-family: Arial, sans-serif; margin: 0; line-height: 1.6; background-color: #f4f4f4; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; line-height: 1.6; background-color: #f0f2f5; color: #333; }
         
-        /* Navigation */
-        nav { background: #333; color: #fff; padding: 1rem; text-align: center; position: sticky; top: 0; }
-        nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; }
+        /* Navigation with Hover Effects */
+        nav { background: #2c3e50; color: #fff; padding: 1rem; text-align: center; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        nav a { color: #fff; margin: 0 15px; text-decoration: none; font-weight: bold; transition: color 0.3s; }
+        nav a:hover { color: #3498db; }
 
-        /* Header/Hero Section */
-        header { background: #007bff; color: white; padding: 60px 20px; text-align: center; }
+        /* Hero Section with Gradient */
+        header { background: linear-gradient(135deg, #007bff, #00c6ff); color: white; padding: 80px 20px; text-align: center; }
 
-        /* Main Content Area */
-        .container { max-width: 1000px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; }
-        
-        /* Two-Column Section */
-        .row { display: flex; flex-wrap: wrap; gap: 20px; }
-        .main-content { flex: 2; min-width: 300px; }
-        .sidebar { flex: 1; min-width: 250px; background: #eee; padding: 15px; border-radius: 5px; }
+        .container { max-width: 1100px; margin: 20px auto; padding: 20px; }
 
-        /* Footer */
-        footer { background: #222; color: #ccc; text-align: center; padding: 20px; margin-top: 40px; }
+        /* Gallery Grid */
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .gallery-item { background: #ddd; height: 150px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666; transition: transform 0.3s; cursor: pointer; }
+        .gallery-item:hover { transform: scale(1.05); background: #3498db; color: white; }
+
+        /* Main Content & Sidebar */
+        .row { display: flex; flex-wrap: wrap; gap: 30px; }
+        .main-content { flex: 2; min-width: 300px; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .sidebar { flex: 1; min-width: 280px; }
+
+        /* Contact Form */
+        .card { background: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+        button { background: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; width: 100%; font-size: 16px; }
+        button:hover { background: #0056b3; }
+
+        footer { background: #2c3e50; color: #bdc3c7; text-align: center; padding: 40px; margin-top: 40px; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
+        <a href="#home">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
     </nav>
 
-    <header>
-        <h1>Welcome to My Professional Page</h1>
-        <p>A simple, clean, and responsive design for your next project.</p>
+    <header id="home">
+        <h1>Explore the Possibilities</h1>
+        <p>A fully functional template with forms, grids, and style.</p>
     </header>
 
     <div class="container">
+        <!-- New Gallery Section -->
+        <h2 id="gallery">Our Portfolio</h2>
+        <div class="gallery">
+            <div class="gallery-item">Project A</div>
+            <div class="gallery-item">Project B</div>
+            <div class="gallery-item">Project C</div>
+            <div class="gallery-item">Project D</div>
+        </div>
+
         <div class="row">
-            <!-- Main Section -->
             <section class="main-content">
-                <h2>Our Story</h2>
-                <p>This is where your main article or information goes. By using a "flex" layout, this section will automatically adjust its size based on the screen width.</p>
-                <h3>Why Choose Us?</h3>
-                <ul>
-                    <li>Responsive Design for mobile and desktop.</li>
-                    <li>Clean, semantic HTML5 code.</li>
-                    <li>Easy to customize styles.</li>
-                </ul>
+                <h2>The Mission</h2>
+                <p>We’ve upgraded the layout with a <strong>CSS Grid</strong> gallery and a cleaner <strong>Flexbox</strong> main area. This structure is perfect for a business landing page or a personal portfolio.</p>
+                <p>Notice how the navigation bar now has a slight shadow and the buttons change color when you hover over them? That's the power of CSS transitions.</p>
             </section>
 
-            <!-- Sidebar -->
+            <!-- Sidebar with Contact Form -->
             <aside class="sidebar">
-                <h3>Latest Updates</h3>
-                <p>Check out our new features added this month!</p>
-                <button onclick="alert('Hello!')">Click Me</button>
+                <div class="card" id="contact">
+                    <h3>Contact Us</h3>
+                    <form action="#">
+                        <input type="text" placeholder="Your Name" required>
+                        <input type="email" placeholder="Your Email" required>
+                        <textarea placeholder="Your Message" rows="4"></textarea>
+                        <button type="submit">Send Message</button>
+                    </form>
+                </div>
             </aside>
         </div>
     </div>
 
     <footer>
-        <p>&copy; 2026 My Website Name. All rights reserved.</p>
+        <p>&copy; 2026 Premium Web Design. All rights reserved.</p>
+        <small>Built with ❤️ and HTML5</small>
     </footer>
 
 </body>
